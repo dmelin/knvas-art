@@ -1,0 +1,30 @@
+{
+  "albums": [
+    {
+      "name": "Sci-Fi Rides",
+      "images": [
+        { "file": "MasterChief.png", "tags": ["halo", "master chief"] },
+        { "file": "SamusAran.png", "tags": ["metroid", "samus aran"] },
+        { "file": "Xenomorph.png", "tags": ["alien", "xenomorph"] },
+        { "file": "Doomslayer.png", "tags": ["doom", "doomguyslayer"] }
+      ]
+    },
+    {
+      "name": "Food Ads",
+      "images": [
+        { "file": "FalloutBurger.png", "tags": ["fallout", "burger"] },
+        { "file": "HaloPizza.png", "tags": ["halo", "pizza"] },
+        { "file": "SCIceCream.png", "tags": ["starcraft", "ice cream"] },
+        { "file": "WH40kCoffee.png", "tags": ["warhammer", "coffee"] }
+      ]
+    },
+    {
+      "name": "Ants",
+      "images": [
+        { "file": "AntsBBQ.png", "tags": ["ants", "bbq"] },
+        { "file": "AntsToaster.png", "tags": ["ants", "toaster"] },
+        { "file": "AntsBeach.png", "tags": ["ants", "beach"] }
+      ]
+    }
+  ]
+}
