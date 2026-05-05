@@ -28,7 +28,10 @@
     </aside>
 
     <main>
-        <div class="justified-grid" v-if="currentImages.length" ref="gridRef">
+        <div class="disclaimer">
+            All images are AI-generated fan art. Any resemblance to existing brands or IPs is intentional — made with love as homage, humor, and creative exploration. No official collaborations here!
+        </div>
+        <div class="justified-grid" v-if="currentImages.length" :key="currentAlbum || 'all'">
             <div
                     class="grid-item"
                     v-for="(img, i) in currentImages"
@@ -55,7 +58,7 @@
 </div>
 
 <script>
-    const { createApp, ref, computed, onMounted } = Vue;
+    const { createApp, ref, computed, onMounted, watch } = Vue;
 
     createApp({
         setup() {
@@ -69,9 +72,27 @@
                     const data = await res.json();
                     // Sort albums alphabetically
                     albums.value = data.albums.sort((a, b) => a.name.localeCompare(b.name));
+
+                    // Read album from query string
+                    const params = new URLSearchParams(window.location.search);
+                    const albumParam = params.get('album');
+                    if (albumParam && albums.value.find(a => a.name === albumParam)) {
+                        currentAlbum.value = albumParam;
+                    }
                 } catch (e) {
                     console.error('Could not load albums.json', e);
                 }
+            });
+
+            // Update query string when album changes
+            watch(currentAlbum, (newAlbum) => {
+                const url = new URL(window.location);
+                if (newAlbum) {
+                    url.searchParams.set('album', newAlbum);
+                } else {
+                    url.searchParams.delete('album');
+                }
+                window.history.pushState({}, '', url);
             });
 
             const currentImages = computed(() => {

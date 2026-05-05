@@ -50,6 +50,17 @@ aside {
     margin-bottom: 1rem;
 }
 
+.disclaimer {
+    padding: 20px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: var(--coffee-dk);
+    background: var(--cream-dark);
+    text-align: center;
+    font-style: italic;
+}
+
 nav a {
     display: block;
     padding: 0.55rem 1.4rem;
@@ -110,6 +121,8 @@ main {
 
 .grid-item {
     break-inside: avoid;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
     margin-bottom: 0;
     cursor: zoom-in;
     background: var(--cream-mid);
