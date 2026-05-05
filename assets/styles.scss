@@ -86,31 +86,31 @@ nav a.active {
 main {
     flex: 1;
     overflow-y: auto;
-    padding: var(--gap);
+    padding: 0;
     background: var(--cream);
 }
 
 /* ── MASONRY GRID ── */
 .justified-grid {
-    column-count: 4;
-    column-gap: var(--gap);
+    column-count: 5;
+    column-gap: 0;
 }
 
-@media (max-width: 1200px) {
-    .justified-grid { column-count: 3; }
+@media (max-width: 1024px) {
+    .justified-grid { column-count: 4; }
 }
 
 @media (max-width: 768px) {
-    .justified-grid { column-count: 2; }
+    .justified-grid { column-count: 3; }
 }
 
 @media (max-width: 480px) {
-    .justified-grid { column-count: 1; }
+    .justified-grid { column-count: 2; }
 }
 
 .grid-item {
     break-inside: avoid;
-    margin-bottom: var(--gap);
+    margin-bottom: 0;
     cursor: zoom-in;
     background: var(--cream-mid);
     position: relative;
@@ -122,12 +122,6 @@ main {
     display: block;
     width: 100%;
     height: auto;
-    transition: transform 0.4s ease, filter 0.4s ease;
-}
-
-.grid-item:hover img {
-    transform: scale(1.03);
-    filter: brightness(1.05);
 }
 
 .grid-item .overlay {
@@ -135,14 +129,9 @@ main {
     inset: 0;
     background: linear-gradient(to top, rgba(42,31,20,0.55) 0%, transparent 50%);
     opacity: 0;
-    transition: opacity 0.3s ease;
     display: flex;
     align-items: flex-end;
     padding: 0.8rem;
-}
-
-.grid-item:hover .overlay {
-    opacity: 1;
 }
 
 .overlay-tags {

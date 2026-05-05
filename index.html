@@ -32,10 +32,10 @@
             <div
                     class="grid-item"
                     v-for="(img, i) in currentImages"
-                    :key="img.file"
+                    :key="img.src"
                     @click="openLightbox(img)"
             >
-                <img :src="imgPath(img.file)" :alt="img.file" loading="lazy" />
+                <img :src="imgPath(img.src)" :alt="img.src" loading="lazy" />
                 <div class="overlay" v-if="img.tags && img.tags.length">
                     <div class="overlay-tags">
                         <span class="tag" v-for="tag in img.tags" :key="tag">{{ tag }}</span>
@@ -49,7 +49,7 @@
     <!-- Lightbox -->
     <div class="lightbox" v-if="lightboxImg" @click="closeLightbox">
         <span class="lightbox-close" @click.stop="closeLightbox">&times;</span>
-        <img :src="imgPath(lightboxImg.file)" @click.stop />
+        <img :src="imgPath(lightboxImg.src)" @click.stop />
     </div>
 
 </div>
@@ -86,8 +86,8 @@
                     images = album ? album.images : [];
                 }
 
-                // Sort images alphabetically by filename
-                return images.sort((a, b) => a.file.localeCompare(b.file));
+                // Sort images by creation date (newest first)
+                return images.sort((a, b) => new Date(b.created) - new Date(a.created));
             });
 
             function selectAlbum(name) {

@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Art gallery with masonry layout",
   "scripts": {
-    "build": "sass assets/styles.scss assets/styles.css --style=compressed"
+    "build": "sass assets/styles.scss assets/styles.css --style=compressed",
+    "scan": "node scripts/build-albums.js"
   },
   "devDependencies": {
     "sass": "^1.77.0"
