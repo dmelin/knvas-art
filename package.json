@@ -1,0 +1,11 @@
+{
+  "name": "art.knvas",
+  "version": "1.0.0",
+  "description": "Art gallery with masonry layout",
+  "scripts": {
+    "build": "sass assets/styles.scss assets/styles.css --style=compressed"
+  },
+  "devDependencies": {
+    "sass": "^1.77.0"
+  }
+}
